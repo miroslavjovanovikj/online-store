@@ -13,29 +13,34 @@ class Directory extends Component{
         {
           title:'hats',
           imageUrl:'https://colorlib.com/wp/wp-content/uploads/sites/2/7_baseball-cap-mockups.jpg',
-          id:'uj1'
+          id:'uj1',
+          linkUrl:'hats'
         },
         {
           title:'jackets',
           imageUrl:'https://img.abercrombie.com/is/image/anf/KIC_132-2310-1402-330_model1?$product-large-anf$',
-          id:'aw2'
+          id:'aw2',
+          linkUrl:'jackets'
         },
         {
           title:'sneakers',
           imageUrl:'https://img.abercrombie.com/is/image/anf/anf_139541_01_life2?$product-large-anf$',
-          id:'we3'
+          id:'we3',
+          linkUrl:'sneakers'
         },
         {
           title:'womans',
           imageUrl:'https://img.abercrombie.com/is/image/anf/KIC_155-2121-2305-278_model1?$product-large-anf$',
           size:'large',
-          id:'tr4'
+          id:'tr4',
+          linkUrl:'womans'
         },
         {
           title:'mans',
           imageUrl:'https://img.abercrombie.com/is/image/anf/KIC_122-2912-1006-181_model3?$product-large-anf$',
           size:'large',
-          id:'sd5'
+          id:'sd5',
+          linkUrl:'mans'
         },
       ]
     }
@@ -45,18 +50,19 @@ class Directory extends Component{
         <div >
           <Container className="HomePage">
             <Row>
-              {this.state.section.map(({title, imageUrl, id, size})=>{
+              {this.state.section.map(({ id,imageUrl,size, ...othersSectionProps})=>{
                 return (
                   id === 'sd5' ?
                   <Col  lg={8} sm={12} md={6} >
                    <div style={{backgroundImage:`url(${imageUrl})`}} className={`${size} Directory-menu`}>
-                     <MenuItem key={id} title={title} imageUrl={imageUrl} itemSize={size}/>
+                     <MenuItem key={id}{...othersSectionProps}/>
                    </div>
+
                  </Col>
                    :
                   <Col  lg={4} sm={12} md={6} >
                    <div style={{backgroundImage:`url(${imageUrl})`}} className={`${size} Directory-menu`}>
-                     <MenuItem key={id} title={title} imageUrl={imageUrl}/>
+                     <MenuItem key={id} {...othersSectionProps}/>
                    </div>
                  </Col>
                 )
