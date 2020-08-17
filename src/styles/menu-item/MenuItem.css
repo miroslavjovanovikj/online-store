@@ -1,0 +1,22 @@
+.HomePage-menu-item{
+
+  border:1px solid black;
+  padding: 9px;
+  text-align: center;
+  width: 150px;
+}
+.HomePage-menu-item:hover{
+  background-color: rgba(246, 246, 246, 0.63);
+  border:1px solid white;
+  padding: 9px;
+  text-align: center;
+  width: 150px;
+  cursor: pointer;
+}
+.HomePage-title,.HomePage-subtitle{
+  color:black;
+}
+
+.HomePage-title{
+  font-size: 33px;
+}

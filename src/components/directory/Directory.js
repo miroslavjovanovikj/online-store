@@ -1,0 +1,71 @@
+import React, {Component} from 'react';
+import '../../styles/directory/Directory.css';
+import MenuItem from '../menu-item/MenuItem';
+import {Container,Row,Col} from 'react-bootstrap';
+import '../../styles/directory/Directory.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+class Directory extends Component{
+  constructor(props){
+    super(props)
+    this.state={
+      section:[
+        {
+          title:'hats',
+          imageUrl:'https://colorlib.com/wp/wp-content/uploads/sites/2/7_baseball-cap-mockups.jpg',
+          id:'uj1'
+        },
+        {
+          title:'jackets',
+          imageUrl:'https://img.abercrombie.com/is/image/anf/KIC_132-2310-1402-330_model1?$product-large-anf$',
+          id:'aw2'
+        },
+        {
+          title:'sneakers',
+          imageUrl:'https://img.abercrombie.com/is/image/anf/anf_139541_01_life2?$product-large-anf$',
+          id:'we3'
+        },
+        {
+          title:'womans',
+          imageUrl:'https://img.abercrombie.com/is/image/anf/KIC_155-2121-2305-278_model1?$product-large-anf$',
+          size:'large',
+          id:'tr4'
+        },
+        {
+          title:'mans',
+          imageUrl:'https://img.abercrombie.com/is/image/anf/KIC_122-2912-1006-181_model3?$product-large-anf$',
+          size:'large',
+          id:'sd5'
+        },
+      ]
+    }
+  }
+  render(){
+    return(
+        <div >
+          <Container className="HomePage">
+            <Row>
+              {this.state.section.map(({title, imageUrl, id, size})=>{
+                return (
+                  id === 'sd5' ?
+                  <Col  lg={8} sm={12} md={6} >
+                   <div style={{backgroundImage:`url(${imageUrl})`}} className={`${size} Directory-menu`}>
+                     <MenuItem key={id} title={title} imageUrl={imageUrl} itemSize={size}/>
+                   </div>
+                 </Col>
+                   :
+                  <Col  lg={4} sm={12} md={6} >
+                   <div style={{backgroundImage:`url(${imageUrl})`}} className={`${size} Directory-menu`}>
+                     <MenuItem key={id} title={title} imageUrl={imageUrl}/>
+                   </div>
+                 </Col>
+                )
+              })}
+
+            </Row>
+          </Container>
+        </div>
+    )
+  }
+}
+export default Directory;
