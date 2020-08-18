@@ -53,14 +53,14 @@ class Directory extends Component{
               {this.state.section.map(({ id,imageUrl,size, ...othersSectionProps})=>{
                 return (
                   id === 'sd5' ?
-                  <Col  lg={8} sm={12} md={6} >
+                  <Col  lg={8} sm={12} md={12} xs={12} >
                    <div style={{backgroundImage:`url(${imageUrl})`}} className={`${size} Directory-menu`}>
                      <MenuItem key={id}{...othersSectionProps}/>
                    </div>
 
                  </Col>
                    :
-                  <Col  lg={4} sm={12} md={6} >
+                  <Col  lg={4} sm={12} md={6}  >
                    <div style={{backgroundImage:`url(${imageUrl})`}} className={`${size} Directory-menu`}>
                      <MenuItem key={id} {...othersSectionProps}/>
                    </div>

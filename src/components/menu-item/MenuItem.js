@@ -6,7 +6,7 @@ const MenuItem = ({title, imageUrl, history, linkUrl, match}) => {
     <div className= 'HomePage-menu-item'onClick={()=>history.push(`${match.url}${linkUrl}`)}>
       <div  className="HomePage-content">
         <div className="HomePage-title">{title.toUpperCase()}</div>
-        <span className="HomePage-subtitle">SHOP NOW</span>
+        <div className="HomePage-subtitle">SHOP NOW</div>
       </div>
     </div>
   )
