@@ -12,7 +12,7 @@ class Directory extends Component{
       section:[
         {
           title:'hats',
-          imageUrl:'https://colorlib.com/wp/wp-content/uploads/sites/2/7_baseball-cap-mockups.jpg',
+          imageUrl:'https://cdna.lystit.com/photos/3f35-2015/09/23/stussy-maroon-world-tour-snapback-hat-purple-product-4-185181650-normal.jpeg',
           id:'uj1',
           linkUrl:'hats'
         },

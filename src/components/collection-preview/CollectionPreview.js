@@ -1,19 +1,23 @@
 import React from 'react';
 import '../../styles/collection-preview/CollectionPreview.css'
-
+import CollectionItem from '../collection-item/CollectionItem';
+import {Container,Row,Col} from 'react-bootstrap';
 
 const CollectionPreview = ({title, items}) =>{
   return(
-    <div className="Collection-preview">
+      <Container className="Collection-preview">
         <h1 className="title">{title}</h1>
-        <div className="preview">
+        <Row>
           {items
             .filter((item,idx)=>idx<4)
-            .map(item=>(
-            <div key={item.id}>{item.name}</div>
+            .map(({id, ...otherItemProps})=>(
+              <Col className="items" md={6} lg={3} sm={6} xs={12}>
+                <CollectionItem key={id} {...otherItemProps}/>
+              </Col>
           ))}
-        </div>
-    </div>
+        </Row>
+  </Container>
+
   )
 }
 export default CollectionPreview

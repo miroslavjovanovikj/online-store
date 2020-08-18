@@ -10,6 +10,17 @@ body{
   padding: 95px;
   background-position: center;
   background-size: cover;
+  background-size: 100%;
+  transition: all 1s ease;
+ -moz-transition: all 1s ease;
+ -ms-transition: all 1s ease;
+ -webkit-transition: all 1s ease;
+ -o-transition: all 1s ease;
+}
+
+
+.Directory-menu:hover {
+  background-size: 115%;
 }
 
 .large{

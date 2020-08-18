@@ -1,0 +1,19 @@
+.Image{
+  height: 200px;
+
+  background-position: center;
+  background-size: cover;
+  border:5px solid white;
+}
+.title {
+  padding-top: 30px;
+}
+.price{
+  float: right;
+}
+.Collection-item{
+  widows: 300px;
+}
+.Collection-footer{
+  padding:5px;
+}
