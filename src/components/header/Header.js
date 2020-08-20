@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom';
 import '../../styles/Header/Header.css';
 import {ReactComponent as Logo} from '../../assets/crown.svg';
 import {Navbar,Nav,Col ,Collapse,Brand} from 'react-bootstrap';
-const Header = () =>{
+import {auth} from '../../firebase/firebase-utils'
+const Header = ({currentUser}) =>{
   return(
     <div className='Header'>
       <Navbar collapseOnSelect expand="lg"  >
@@ -15,6 +16,11 @@ const Header = () =>{
           <Nav>
             <Nav.Link href="/shop">SHOP</Nav.Link>
             <Nav.Link >CONTACT</Nav.Link>
+          {
+            currentUser ?
+                <Nav.Link onClick={()=>auth.signOut()}>SIGN OUT</Nav.Link> :
+              <Nav.Link href="/signin">SIGN IN</Nav.Link>
+          }
           </Nav>
         </Navbar.Collapse>
       </Navbar>
