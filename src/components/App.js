@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {Container,Row,Col} from 'react-bootstrap';
-import {auth} from '../firebase/firebase-utils';
+import {auth,createUserProfileDocument} from '../firebase/firebase-utils';
 
 import SignInSignUp from '../pages/SignInAndSignUp/SignInSignUp';
 import HomePage from '../pages/homepage/HomePage';
@@ -20,9 +20,20 @@ class App extends Component {
   }
   unsubscrubeFromAuth=null
   componentDidMount(){
-    this.unsubscrubeFromAuth=auth.onAuthStateChanged(user=>{
-      this.setState({currentUser:user});
-      console.log(user)
+    this.unsubscrubeFromAuth=auth.onAuthStateChanged(async userAuth=>{
+      if(userAuth){
+        const userRef= await createUserProfileDocument(userAuth)
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser:{
+              id:snapShot.id,
+              ...snapShot.data()
+            }
+          })
+        })
+
+      }
+      this.setState({currentUser:userAuth})
     })
   }
   componentWillUnmount(){
