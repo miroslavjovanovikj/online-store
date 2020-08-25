@@ -19,19 +19,3 @@ const CollectionItem = ({id, name, price, imageUrl}) =>{
 }
 
 export default CollectionItem;
-
-// <Container >
-// <Row>
-//    <Col md={4} lg={4} sm={4}>
-//      <div className="boja">ddd</div>
-//      </Col>
-//      <Col md={4} lg={4} sm={4}>
-//        <div className="boja">ddd</div>
-//        </Col>
-//        <Col md={4} lg={4} sm={4}>
-//          <div className="boja">ddd</div>
-//          </Col>
-//
-//    </Row>
-//    </Container>
-// )
