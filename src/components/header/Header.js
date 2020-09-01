@@ -1,11 +1,14 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import '../../styles/Header/Header.css';
 import {connect} from 'react-redux';
 import {ReactComponent as Logo} from '../../assets/crown.svg';
 import {Navbar,Nav,Col ,Collapse,Brand} from 'react-bootstrap';
-import {auth} from '../../firebase/firebase-utils'
-const Header = ({currentUser}) =>{
+import {auth} from '../../firebase/firebase-utils';
+import CartIcon from '../cart-icon/CartIcon';
+import CartDropdown from '../cart-dropdown/CartDropdown';
+import '../../styles/Header/Header.css';
+
+const Header = ({currentUser, hidden}) =>{
   return(
     <div className='Header'>
       <Navbar collapseOnSelect expand="lg"  >
@@ -22,13 +25,20 @@ const Header = ({currentUser}) =>{
                 <Nav.Link onClick={()=>auth.signOut()}>SIGN OUT</Nav.Link> :
               <Nav.Link href="/signin">SIGN IN</Nav.Link>
           }
+          <CartIcon />
           </Nav>
+          {
+            hidden ?
+            null   :
+            <CartDropdown/>
+          }
         </Navbar.Collapse>
       </Navbar>
     </div>
   )
 }
 const mapStateToProps =(state)=>({
-  currentUser:state.user.currentUser
+  currentUser:state.user.currentUser,
+  hidden:state.cart.hidden
 })
 export default connect(mapStateToProps)(Header);
